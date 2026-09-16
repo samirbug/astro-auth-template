@@ -1,0 +1,35 @@
+{ 
+  // my settings
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.exclude": {
+    "dist": true,
+    ".astro": true,
+    ".direnv": true,
+    ".drizzle": true,
+    ".wrangler": true,
+    "flake.lock": true,
+    "node_modules": true,
+    "pnpm-lock.yaml": true,
+    "pnpm-workspace.yaml": true
+  },
+  
+  // tailwind extension
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+
+  // biomejs
+  "editor.defaultFormatter": "biomejs.biome",
+
+  // site.webmanifest
+  "json.schemas": [
+    {
+      "fileMatch": [ "*.webmanifest" ],
+      "url": "https://json.schemastore.org/web-manifest.json"
+    }
+  ]
+}

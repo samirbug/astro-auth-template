@@ -1,0 +1,27 @@
+{
+	"name": "",
+	"compatibility_date": "",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"compatibility_flags": [ "global_fetch_strictly_public" ],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+    {
+      "binding": "DB",
+			"migrations_dir": ".drizzle",
+      "database_name": "",
+      "database_id": "local-dev-id"
+    }
+  ],
+	"vars": {
+		"BETTER_AUTH_SECRET": "local-dev-secret",
+		"GOOGLE_CLIENT_ID": "local-dev-id",
+		"GOOGLE_CLIENT_SECRET": "local-dev-secret"
+	}
+}

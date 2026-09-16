@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "setup",
+    "lint": "biome lint --write .",
+    "format": "biome format --write .",
+    "types": "wrangler types",
+    "build": "astro build",
+    "check": "astro check",
+    "dev": "astro dev --host",
+    "preview": "pnpm build && wrangler pages dev dist --ip 0.0.0.0",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "wrangler d1 migrations apply --local"
+  },
+  "dependencies": {
+    "astro": "^7.3.2",
+    "react": "^19.3.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/cloudflare": "^14.3.1",
+    "@astrojs/react": "^6.0.5",
+    "@biomejs/biome": "^2.5.13",
+    "@cloudflare/workers-types": "^5.20260915.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.5.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "better-auth": "^1.7.5",
+    "drizzle-kit": "^0.31.10",
+    "drizzle-orm": "^0.45.2",
+    "react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.132.0"
+  }
+}

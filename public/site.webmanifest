@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "short_name": "",
+  "theme_color": "",
+  "background_color": "",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "180x180",
+      "type": "image/png",
+      "src": "/apple-touch-icon.png"
+    }
+  ]
+}

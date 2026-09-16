@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "Dev: Astro",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev"
+    },
+    {
+      "name": "Preview: Cloudflare",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm preview"
+    }
+  ]
+}

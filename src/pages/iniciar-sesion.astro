@@ -1,0 +1,84 @@
+---
+import Layout from '@/layouts/Layout.astro'
+const { user } = Astro.locals
+---
+
+<Layout title="Iniciar Sesión">
+  <h1>Iniciar Sesión</h1>
+
+  {user ? (
+    <div>
+      <p>Sesión activa como: <strong>{user.email}</strong></p>
+      <button type="button" id="logout-btn">Cerrar Sesión</button>
+    </div>
+  ) : (
+    <div>
+      <label for="name">Nombre: </label>
+      <input type="text" id="name" />
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" />
+    </div>
+    <div>
+      <label for="password">Contraseña: </label>
+      <input type="password" id="password" />
+    </div>
+    <div>
+      <button type="button" id="signup-btn">Registrarse</button>
+      <button type="button" id="signin-btn">Iniciar Sesión</button>
+    </div>
+  )}
+  <a href="/">Volver</a>
+
+  <script>
+    const signupBtn = document.getElementById('signup-btn')
+    const signinBtn = document.getElementById('signin-btn')
+    const logoutBtn = document.getElementById('logout-btn')
+
+    if (signupBtn) {
+      signupBtn.addEventListener('click', async () => {
+        const name = (document.getElementById('name') as HTMLInputElement).value
+        const email = (document.getElementById('email') as HTMLInputElement).value
+        const password = (document.getElementById('password') as HTMLInputElement).value
+
+        const res = await fetch('/api/auth/sign-up/email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        })
+
+        if (res.ok) window.location.reload()
+        else alert('Error')
+      })
+    }
+
+    if (signinBtn) {
+      signinBtn.addEventListener('click', async () => {
+        const email = (document.getElementById('email') as HTMLInputElement).value
+        const password = (document.getElementById('password') as HTMLInputElement).value
+
+        const res = await fetch('/api/auth/sign-in/email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        })
+
+        if (res.ok) window.location.reload()
+        else alert('Credenciales incorrectas')
+      })
+    }
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', async () => {
+        const res = await fetch('/api/auth/sign-out', { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({})
+        })
+
+        if (res.ok) window.location.reload()
+      })
+    }
+  </script>
+</Layout>

@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# nix
+.direnv/
+
+# astro
+dist/
+.astro/
+
+# wrangler
+.wrangler
+.dev.vars
+
+# drizzle
+.drizzle/
